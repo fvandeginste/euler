@@ -37,6 +37,7 @@ def decomp(z):
 debug=False
 allRac=[]
 allMat=[]
+allParam=[]
 compteur=0
 power10=2
 pour=pow(10,power10)
@@ -70,12 +71,19 @@ while True:
                                 if debug:
                                     print ("all entiers")
                                 if ( a+b+c+d < pour):
-                                    if debug:
-                                        print("inf pour")
-                                    if (a,b,c,d) not in allMat:
-                                        print("append")
-                                        allMat.append((a,b,c,d))
+                                    if int((a+s)/t) == (a+s)/t and int( b/t)== b/t and  int( c/t)== c/t and (int)(d+s)/t==(d+s)/t:
+                                        if debug:
+                                            print("inf pour")
+                                        if (a,b,c,d) not in allMat:
+                                            print("append")
+                                            allMat.append((a,b,c,d))
+                                            allParam.append((racDelta,s,t,racTho2s,t,a,b,c))
+                                            allRac.append(((a+s)/t,b/t,c/t,(d+s)/t))
                                     else:
+                                        if debug:
+                                            print ("pas int a,b,c,d")
+                                else:
+                                    if debug:
                                         print("somme",a+b+c+d)
                             else:
                                 if debug:
@@ -89,12 +97,12 @@ while True:
                             print("\tb",b,"c",c,"d",d,"s",s, (a+s)/t>0 , b/t>0 , c/t>0 , (d+s)/t>0, a % t == 0 , b % t == 0 , c % t == 0 , (d+s) % t == 0)
                                     #print("m",np.dot(r,r))
                             allRac.append(r)
-                a+=1
-                if a>pour:
-                    break
-            racTho2s+=1
-            if racTho2s>pour:
-                break
+                    a+=1
+                    if a>pour:
+                        break
+        racTho2s+=1
+        if racTho2s>pour:
+            break
     racDelta+=1
     if racDelta>pour:
         break
